@@ -21,7 +21,7 @@ func clock(s string) time.Time {
 }
 
 func TestBlockClock(t *testing.T) {
-	bl := BlockClock{}
+	bl := Create()
 
 	now := clock("2014/01/01 12:00:00")
 	lockAt := clock("2014/01/01 12:30:00")
@@ -34,7 +34,7 @@ func TestBlockClock(t *testing.T) {
 }
 
 func TestAllow(t *testing.T) {
-	bl := BlockClock{}
+	bl := Create()
 	now := time.Now()
 	c := bl.Set(now)
 
