@@ -1,0 +1,24 @@
+#!/bin/sh
+
+home=$HOME/nogame
+plist="com.smokinggun.nogame.plist"
+dir=$(dirname $0)
+
+echo ""
+echo ""
+echo "copying proxy server application to $home"
+mkdir -p $home
+cp $dir/nogame $home
+
+echo "configuring launchd"
+sed 's|PATH|'$home'/nogame|g' $dir/$plist > "$home/$plist"
+
+echo "launching"
+launchctl unload $home/$plist
+launchctl load $home/$plist
+
+echo "Ok, configure Firefox and your system to use the proxy server."
+echo ""
+echo "Hope this helps."
+echo ""
+echo ""
