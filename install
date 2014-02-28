@@ -17,8 +17,10 @@ echo "launching"
 launchctl unload $home/$plist
 launchctl load $home/$plist
 
-echo "Ok, configure Firefox and your system to use the proxy server."
+echo "Ok, configure Firefox and your system to use the proxy server. Also add the game servers."
 echo ""
 echo "Hope this helps."
 echo ""
 echo ""
+echo r2games.com > $home/hosts.txt
+open $home/hosts.txt

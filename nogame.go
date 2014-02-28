@@ -99,7 +99,7 @@ func main() {
 	bl := Create()
 	proxy := goproxy.NewProxyHttpServer()
 	proxy.Verbose = false
-	proxy.OnRequest(goproxy.DstHostIs("localhost")).DoFunc(bl.conf)
+	proxy.OnRequest(goproxy.DstHostIs("nogame")).DoFunc(bl.conf)
 	proxy.OnRequest().DoFunc(bl.checkHost)
 	log.Fatal(http.ListenAndServe(":8080", proxy))
 }

@@ -18,14 +18,14 @@ func hostsFile() string {
 		log.Fatal(err)
 	}
 
-	dir := fmt.Sprintf("%s/config/", u.HomeDir)
+	dir := fmt.Sprintf("%s/nogame/", u.HomeDir)
 	err = os.MkdirAll(dir, 0777)
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	filename := fmt.Sprintf("%snogame-hosts.txt", dir)
+	filename := fmt.Sprintf("%shosts.txt", dir)
 	file, err := os.Open(filename)
 
 	if err != nil {
