@@ -38,9 +38,9 @@ func TestAllow(t *testing.T) {
 	now := time.Now()
 	c := bl.Set(now)
 
-	assertEqual(t, true, c.Allow())
+	assertEqual(t, true, c.locked())
 
 	later, _ := time.ParseDuration("-1h")
 	c = bl.Set(now.Add(later))
-	assertEqual(t, false, c.Allow())
+	assertEqual(t, false, c.locked())
 }

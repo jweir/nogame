@@ -19,26 +19,23 @@ func hostsFile() string {
 	}
 
 	dir := fmt.Sprintf("%s/config/", u.HomeDir)
-
 	err = os.MkdirAll(dir, 0777)
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-  filename := fmt.Sprintf("%snogame-hosts.txt", dir)
+	filename := fmt.Sprintf("%snogame-hosts.txt", dir)
+	file, err := os.Open(filename)
 
-  file, err := os.Open(filename)
+	if err != nil {
+		file, err = os.Create(filename)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
 
-  if err != nil {
-    file, err = os.Create(filename)
-  }
-
-  if err != nil {
-    log.Fatal(err)
-  }
-
-  return file.Name()
+	return file.Name()
 }
 
 func Hosts() []string {
@@ -48,11 +45,10 @@ func Hosts() []string {
 		log.Fatal(e)
 	}
 
-  hosts := strings.Split(strings.TrimSpace(string(str)), "\n")
+	hosts := strings.Split(strings.TrimSpace(string(str)), "\n")
 	return hosts
 }
 
 func BlockedHosts() *regexp.Regexp {
 	return regexp.MustCompile(strings.Join(Hosts(), "|"))
 }
-
