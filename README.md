@@ -2,11 +2,6 @@
 
 Proxy server which limits the amount of time on a list of hosts.
 
-This was created to block a nephew from spending too much time playing online games.
+This was created to limit my nephew's game time, which has gotten a bit out of control.
 
-
-## TODO
-
-* update the proxy server (if the user adds or removes a hostname)
-* have a configurable path to the hosts file
-* url to kill and restart the server
+No docs, this is a personal project.

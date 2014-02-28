@@ -1,6 +1,6 @@
 #!/bin/sh
 
-home=$HOME/nogame
+home=$HOME/Applications/nogame
 plist="com.smokinggun.nogame.plist"
 dir=$(dirname $0)
 

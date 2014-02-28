@@ -18,7 +18,7 @@ func hostsFile() string {
 		log.Fatal(err)
 	}
 
-	dir := fmt.Sprintf("%s/nogame/", u.HomeDir)
+	dir := fmt.Sprintf("%s/Applications/nogame/", u.HomeDir)
 	err = os.MkdirAll(dir, 0777)
 
 	if err != nil {
